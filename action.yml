@@ -1,0 +1,21 @@
+name: 'Wait'
+description: 'Wait a designated number of milliseconds'
+inputs:
+  label:
+    description: label for the badge
+    required: true
+  message:
+    description: message for the badge
+    required: true
+  color:
+    description: color for the badge
+    required: true
+  gist-id:
+    description: id of the gist where the badge should be stored
+    required: true
+  filename:
+    description: filename of the badge in the gist
+    required: true
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

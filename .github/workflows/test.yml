@@ -1,0 +1,38 @@
+name: test
+
+on:
+  workflow_dispatch:
+    inputs:
+      label:
+        description: label for the badge
+        required: true
+      message:
+        description: message for the badge
+        required: true
+      color:
+        description: color for the badge
+        required: true
+      gist-id:
+        description: id of the gist where the badge should be stored
+        required: true
+      filename:
+        description: filename of the badge in the gist
+        required: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: run test
+        uses: ./
+        env:
+          GITHUB_TOKEN: ${{secrets.CICD_TOKEN}}
+        with:
+          label: ${{github.event.inputs.label}}
+          message: ${{github.event.inputs.message}}
+          color: ${{github.event.inputs.color}}
+          gist-id: ${{github.event.inputs.gist-id}}
+          filename: ${{github.event.inputs.filename}}

@@ -1,0 +1,35 @@
+{
+  "name": "update-badge",
+  "version": "1.0.0",
+  "description": "Github Action for updating a badge stored in a gist",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "prepare": "ncc build index.js -o dist --source-map --license licenses.txt",
+    "all": "npm run lint && npm run prepare"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhuyvett/update-badge.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "JavaScript"
+  ],
+  "author": "David Dhuyvetter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dhuyvett/update-badge/issues"
+  },
+  "homepage": "https://github.com/dhuyvett/update-badge#readme",
+  "dependencies": {
+    "@actions/core": "^1.9.0",
+    "node-fetch": "^3.2.6"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.34.0",
+    "eslint": "^8.19.0"
+  }
+}
